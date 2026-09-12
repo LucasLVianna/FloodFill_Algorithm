@@ -9,10 +9,12 @@ public class Main {
         // IOException verifica erros na hora de ler a imagem, e evita que precise
         // resolver na main, se der problema, ele alerta e para
 
-        BufferedImage imagemOriginal = ImageIO.read(new File("matriz.png"));
+        BufferedImage imagemParaFila = ImageIO.read(new File("matriz.png"));
         FloodFill floodFill = new FloodFill();
 
-        floodFill.preencherComFila(imagemOriginal, 10,10,0xFFAA00FF);
-        // floodFill.preencherComPilha(imagemOriginal, 150 , 150, 0xFFAA00FF);
+        floodFill.preencherComFila(imagemParaFila, 10,10,0xFFAA00FF);
+
+        BufferedImage imagemParaPilha = ImageIO.read(new File("matriz.png"));
+        floodFill.preencherComPilha(imagemParaPilha, 150 , 150, 0xFFAA00FF);
     }
 }
