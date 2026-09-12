@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class FloodFill {
-    public void preencherComFila(BufferedImage imagem, int x, int y, int novaCor) throws IOException {
+    public void preencherComFila(BufferedImage imagem, int x, int y, int novaCor, int passo) throws IOException {
         Fila fila = new Fila();
 
         Coordenada inicio = new Coordenada(x,y);
@@ -17,6 +17,7 @@ public class FloodFill {
         int altura = imagem.getHeight();
 
         int contador = 1;
+        int passoSalvar = passo;
 
         new File("frames_fila").mkdirs();
 
@@ -31,7 +32,7 @@ public class FloodFill {
             }
 
             imagem.setRGB(p.x, p.y, corPintar);
-            if(contador % 100 == 0){
+            if(contador % passoSalvar == 0){
                 ImageIO.write(imagem, "png", new File("frames_fila/frame_"+contador+".png"));
             }
             contador++;
@@ -46,7 +47,7 @@ public class FloodFill {
         System.out.println("Imagem pintada com fila com sucesso!");
     }
 
-    public void preencherComPilha(BufferedImage imagem, int x, int y, int novaCor) throws IOException {
+    public void preencherComPilha(BufferedImage imagem, int x, int y, int novaCor, int passo) throws IOException {
         Pilha pilha = new Pilha();
 
         Coordenada inicio = new Coordenada(x, y);
@@ -59,6 +60,7 @@ public class FloodFill {
         int altura = imagem.getHeight();
 
         int contador = 1;
+        int passoSalvar = passo;
 
         new File("frames_pilha").mkdirs();
 
@@ -73,7 +75,7 @@ public class FloodFill {
             }
 
             imagem.setRGB(p.x, p.y, corPintar);
-            if(contador % 100 == 0){
+            if(contador % passoSalvar == 0){
                 ImageIO.write(imagem, "png", new File("frames_pilha/frame_"+contador+".png"));
             }
             contador++;
