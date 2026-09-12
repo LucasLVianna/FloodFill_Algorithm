@@ -30,3 +30,8 @@ bin/
 .DS_Store.idea/
 *iml
 target/
+
+### Arquivos gerados pelo programa ###
+
+frames_pilha/
+frames_fila/
